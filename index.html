@@ -3,581 +3,656 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>La Estampa Textil — Merch para Eventos · Estampado + Activaciones</title>
-<meta name="description" content="La Estampa Textil · Merch ultra-rápido para tu evento, activación o corrida. Estampado textil DTF como fuerte + complementos (tazas, lápices, accesorios). Producción 7 días."/>
+<title>La Estampa Textil — Merch para Eventos · Estampado DTF + Activaciones</title>
+<meta name="description" content="La Estampa Textil · Merch ultra-rápido para corridas, activaciones de marca y eventos corporativos. Estampado textil DTF + complementos. 4 años de oficio, plotters Epson certificados, producción 5-7 días."/>
+<link rel="canonical" href="https://estampa-merch.52-203-182-241.nip.io/"/>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script defer src="https://unpkg.com/lenis@1.0.42/dist/lenis.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  /* Paleta La Estampa */
-  --bg:          #0B0A08;
-  --bg2:         #15140F;
-  --bg3:         #1c1a14;
-  --ink:         #F4ECDC;
-  --ink-soft:    #94897A;
-  --line:        rgba(244,236,220,0.08);
-  --line-strong: rgba(244,236,220,0.18);
-  --orange:      #FF5A1F;       /* DTF orange */
-  --orange-deep: #B53A0F;
-  --lime:        #C9F25C;       /* eco lime */
-  --gold:        #F2C12B;       /* hilo dorado */
+  /* === Paleta Digitals Cut (idéntica al template recomendado) === */
+  --bg:           #0B0A08;     /* deep dark */
+  --bg-2:         #15140F;
+  --bg-3:         #1c1a14;
+  --paper:        #F9F4E8;     /* paper cream interior */
+  --paper-2:      #F1EAD8;
+  --cream:        #FAF6EE;
+  --ink:          #1A1814;
+  --ink-soft:     #6A6357;
+  --ink-mute:     #94897A;
+  --bone:         #F4ECDC;
+  --line:         rgba(26,24,20,0.10);
+  --line-strong:  rgba(26,24,20,0.20);
+  --line-dark:    rgba(244,236,220,0.10);
 
-  --f-display:   'Bebas Neue', sans-serif;
-  --f-body:      'Montserrat', sans-serif;
-  --f-serif:     'Instrument Serif', Georgia, serif;
-  --f-mono:      'JetBrains Mono', ui-monospace, monospace;
+  --orange:       #FF5A1F;     /* DTF · primary */
+  --orange-deep:  #B53A0F;
+  --gold:         #F2C12B;     /* hilo · recomendada ★ */
+  --lime:         #C9F25C;     /* eco accent */
+  --red-dot:      #FF5A3C;
 
-  --ease:        cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out:    cubic-bezier(0.19, 1, 0.22, 1);
+  --f-display:    'Bricolage Grotesque', sans-serif;
+  --f-body:       'Geist', sans-serif;
+  --f-serif:      'Instrument Serif', Georgia, serif;
+  --f-mono:       'Geist Mono', ui-monospace, monospace;
+
+  --ease:         cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { background: var(--bg); color: var(--ink); font-family: var(--f-body); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--bone); font-family: var(--f-body); font-weight: 400; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
-button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
-::selection { background: var(--orange); color: var(--ink); }
+button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; }
+::selection { background: var(--orange); color: var(--bone); }
 
-/* === Custom cursor (desktop only) === */
-@media (hover: hover) {
-  body { cursor: none; }
-  .cursor { position: fixed; top: 0; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--orange); pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s; box-shadow: 0 0 12px var(--orange); }
-  .cursor.hover { width: 64px; height: 64px; background: rgba(255,90,31,0.18); border: 1.5px solid var(--orange); }
-  .cursor-trail { position: fixed; top: 0; left: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); opacity: 0.5; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); }
-}
+/* === SHELL · simula browser window estilo Digitals Cut === */
+.dc-shell { position: relative; max-width: 1400px; margin: 24px auto; background: var(--paper); color: var(--ink); border-radius: 22px; overflow: hidden; box-shadow: 0 40px 120px -20px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.04); }
+.browser-bar { display: flex; align-items: center; gap: 8px; padding: 14px 20px; background: var(--bg-3); border-bottom: 1px solid rgba(244,236,220,0.06); }
+.browser-bar .dot { width: 12px; height: 12px; border-radius: 50%; }
+.browser-bar .url { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; color: rgba(244,236,220,0.55); margin-left: 14px; text-transform: lowercase; }
 
-/* === Background atmosphere === */
-.bg-grain { position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.4; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-.bg-orb { position: fixed; pointer-events: none; z-index: 0; border-radius: 50%; filter: blur(80px); }
-.bg-orb-1 { top: -20%; right: -10%; width: 60vw; height: 60vw; max-width: 800px; max-height: 800px; background: radial-gradient(ellipse, rgba(255,90,31,0.18), transparent 60%); }
-.bg-orb-2 { bottom: -25%; left: -15%; width: 65vw; height: 65vw; max-width: 800px; max-height: 800px; background: radial-gradient(ellipse, rgba(201,242,92,0.10), transparent 60%); }
+/* === HERO === */
+.dc-hero { position: relative; min-height: 78vh; overflow: hidden; isolation: isolate; }
+.dc-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: brightness(0.6) contrast(1.1) saturate(0.95); }
+.dc-hero::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(11,10,8,0.45) 0%, rgba(11,10,8,0.65) 60%, rgba(11,10,8,0.92) 100%); }
+.dc-hero::before { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 3px); mix-blend-mode: overlay; opacity: 0.5; }
 
-/* === Holograms === */
-.holo { position: absolute; font-family: var(--f-display); font-size: clamp(8rem, 18vw, 18rem); line-height: 0.82; color: transparent; -webkit-text-stroke: 1.5px rgba(255,90,31,0.12); opacity: 0.6; z-index: 0; pointer-events: none; user-select: none; text-transform: uppercase; letter-spacing: 0.015em; }
-.holo.gold { -webkit-text-stroke-color: rgba(242,193,43,0.10); }
-.holo.lime { -webkit-text-stroke-color: rgba(201,242,92,0.10); }
+.dc-nav { position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between; padding: 22px clamp(20px, 4vw, 44px); }
+.dc-nav-brand { display: flex; align-items: center; gap: 14px; }
+.dc-nav-brand img { height: 52px; width: auto; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.94); padding: 5px; }
+.dc-nav-brand .meta { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--gold); font-weight: 600; }
+.dc-menu { display: flex; align-items: center; gap: 22px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,236,220,0.85); font-weight: 600; }
+.dc-menu span { transition: color 0.3s; cursor: pointer; }
+.dc-menu span:hover { color: var(--orange); }
+.dc-menu .pill { padding: 8px 14px; background: var(--orange); color: var(--bg); border-radius: 100px; font-weight: 800; letter-spacing: 0.18em; }
+.dc-menu .pill:hover { color: var(--bg); background: var(--gold); }
+@media (max-width: 880px) { .dc-menu span:not(.pill) { display: none; } }
 
-/* === Topbar === */
-.topbar { position: sticky; top: 0; z-index: 100; background: rgba(11,10,8,0.78); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); padding: 14px clamp(20px, 4vw, 48px); display: flex; justify-content: space-between; align-items: center; gap: 18px; }
-.topbar-brand { display: flex; align-items: center; gap: 10px; font-family: var(--f-display); font-size: 22px; letter-spacing: 0.06em; color: var(--ink); text-transform: uppercase; }
-.topbar-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); animation: dotPulse 1.8s infinite; }
-@keyframes dotPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,90,31,0.6); } 50% { box-shadow: 0 0 0 8px rgba(255,90,31,0); } }
-.topbar-nav { display: flex; gap: 26px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; }
-.topbar-nav a { color: var(--ink-soft); transition: color 0.3s; }
-.topbar-nav a:hover { color: var(--orange); }
-@media (max-width: 760px) { .topbar-nav { display: none; } }
-.topbar-cta { padding: 10px 18px; background: var(--orange); color: var(--bg); font-family: var(--f-body); font-weight: 800; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; border-radius: 100px; transition: transform 0.25s, box-shadow 0.3s; white-space: nowrap; }
-.topbar-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(255,90,31,0.4); }
+.dc-content { position: relative; z-index: 5; padding: clamp(30px, 6vh, 70px) clamp(20px, 5vw, 60px) clamp(60px, 8vh, 100px); max-width: 1140px; }
+.dc-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; background: rgba(242,193,43,0.12); border: 1px solid rgba(242,193,43,0.45); border-radius: 100px; font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 26px; backdrop-filter: blur(8px); }
+.dc-badge .star { color: var(--gold); font-size: 14px; }
+.dc-content h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(2.5rem, 7vw, 6rem); line-height: 0.96; letter-spacing: -0.02em; color: var(--bone); margin-bottom: 22px; text-shadow: 0 4px 28px rgba(0,0,0,0.45); }
+.dc-content h1 em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--orange); letter-spacing: -0.005em; padding-block: 0.06em; line-height: 1; display: inline-block; }
+.dc-sub { font-family: var(--f-body); font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.6; color: rgba(244,236,220,0.85); max-width: 64ch; margin-bottom: 28px; text-shadow: 0 2px 10px rgba(0,0,0,0.45); }
+.dc-sub strong { color: var(--bone); font-weight: 600; }
+.dc-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.dc-cta-primary { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; background: var(--orange); color: var(--bg); border-radius: 100px; font-family: var(--f-display); font-weight: 800; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; transition: transform 0.25s, box-shadow 0.3s; }
+.dc-cta-primary:hover { transform: translateY(-3px); box-shadow: 0 0 0 6px rgba(255,90,31,0.18), 0 18px 40px rgba(255,90,31,0.5); }
+.dc-cta-secondary { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; background: transparent; color: var(--bone); border: 1px solid rgba(244,236,220,0.30); border-radius: 100px; font-family: var(--f-display); font-weight: 700; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; transition: all 0.25s; }
+.dc-cta-secondary:hover { background: rgba(244,236,220,0.06); border-color: var(--gold); color: var(--gold); }
 
-/* === Hero === */
-.hero { position: relative; z-index: 5; min-height: 92vh; padding: clamp(40px, 6vh, 80px) clamp(20px, 5vw, 60px) clamp(40px, 6vh, 80px); display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
-.hero-video {
-  position: absolute; inset: 0; z-index: 0;
-  width: 100%; height: 100%; object-fit: cover;
-  opacity: 0.40;
-  filter: saturate(1.05) contrast(1.12) brightness(0.8) hue-rotate(-8deg);
-}
-.hero::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(11,10,8,0.30) 0%, rgba(11,10,8,0.50) 50%, rgba(11,10,8,0.95) 100%), radial-gradient(ellipse at 25% 30%, rgba(255,90,31,0.18), transparent 55%); pointer-events: none; }
-.hero::after { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 3px); mix-blend-mode: overlay; opacity: 0.6; }
-.hero-content { position: relative; z-index: 5; max-width: 1280px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 4vw, 60px); align-items: end; }
-@media (max-width: 920px) { .hero-content { grid-template-columns: 1fr; } }
-.hero-kicker { display: inline-flex; align-items: center; gap: 12px; padding: 7px 14px; background: rgba(255,90,31,0.08); border: 1px solid rgba(255,90,31,0.36); border-radius: 100px; font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--orange); margin-bottom: 24px; backdrop-filter: blur(8px); width: fit-content; }
-.hero-kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); animation: dotPulse 1.8s infinite; }
-.hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.8rem, 9vw, 7.5rem); line-height: 0.88; letter-spacing: 0.005em; text-transform: uppercase; margin-bottom: 24px; text-shadow: 0 4px 28px rgba(0,0,0,0.45); }
-.hero h1 .em { color: var(--orange); }
-.hero h1 .italic { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--gold); text-transform: none; letter-spacing: -0.005em; padding-block: 0.06em; line-height: 1.02; display: inline-block; }
-.hero-sub { font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.6; color: var(--ink); max-width: 60ch; margin-bottom: 22px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
-.hero-sub strong { color: var(--gold); font-weight: 700; }
-.hero-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
-.btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: 100px; font-family: var(--f-body); font-weight: 800; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; background: var(--orange); color: var(--bg); transition: transform 0.25s, box-shadow 0.3s; }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 0 6px rgba(255,90,31,0.18), 0 18px 40px rgba(255,90,31,0.5); }
-.btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: 100px; font-family: var(--f-body); font-weight: 700; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; background: rgba(244,236,220,0.04); color: var(--ink); border: 1px solid var(--line-strong); transition: all 0.25s; backdrop-filter: blur(6px); }
-.btn-ghost:hover { background: rgba(255,90,31,0.10); border-color: var(--orange); color: var(--orange); }
+/* === SECTIONS === */
+.dc-section { padding: clamp(60px, 9vh, 110px) clamp(20px, 5vw, 60px); position: relative; }
+.bg-cream { background: var(--cream); color: var(--ink); }
+.bg-paper { background: var(--paper-2); color: var(--ink); }
+.bg-dark { background: var(--bg); color: var(--bone); }
 
-/* Hero stats */
-.hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 24px; background: rgba(28,26,20,0.62); border: 1px solid var(--line-strong); border-radius: 16px; backdrop-filter: blur(14px); }
-.hero-stat .num { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.2rem, 3.6vw, 3rem); line-height: 1; color: var(--orange); letter-spacing: -0.01em; padding-block: 0.05em; }
-.hero-stat .lbl { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; font-weight: 700; }
-@media (max-width: 600px) { .hero-stats { grid-template-columns: 1fr; gap: 14px; } }
+.dc-kicker { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 16px; }
+.bg-dark .dc-kicker { color: var(--gold); }
+.dc-section h2 { font-family: var(--f-display); font-weight: 800; font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1; letter-spacing: -0.022em; margin-bottom: 14px; max-width: 24ch; }
+.dc-section h2 em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--orange); letter-spacing: -0.005em; padding-block: 0.06em; line-height: 1.02; display: inline-block; }
+.dc-section .dc-sub { color: var(--ink-soft); text-shadow: none; }
+.bg-dark .dc-section h2 em { color: var(--gold); }
+.bg-dark .dc-section .dc-sub { color: rgba(244,236,220,0.75); }
 
-/* === Marquee === */
-.marquee { padding: 22px 0; background: var(--orange); color: var(--bg); overflow: hidden; position: relative; z-index: 5; border-top: 1px solid var(--orange-deep); border-bottom: 1px solid var(--orange-deep); }
-.marquee-track { display: flex; gap: 60px; animation: marqueeRoll 30s linear infinite; white-space: nowrap; }
-.marquee-track span { font-family: var(--f-display); font-size: clamp(1.5rem, 3vw, 2.4rem); letter-spacing: 0.04em; text-transform: uppercase; }
-.marquee-track span::after { content: '✦'; margin-left: 60px; opacity: 0.6; }
-@keyframes marqueeRoll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* Stats === */
+.dc-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 14px 0; }
+@media (max-width: 760px) { .dc-stats-row { grid-template-columns: repeat(2, 1fr); } }
+.dc-stat .v { font-family: var(--f-display); font-weight: 800; font-size: clamp(2.4rem, 4vw, 3.4rem); line-height: 1; letter-spacing: -0.02em; color: var(--ink); padding-block: 0.04em; }
+.dc-stat .v em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--orange); }
+.dc-stat .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-top: 8px; display: block; }
 
-/* === Sections === */
-.section { position: relative; z-index: 5; padding: clamp(70px, 10vh, 130px) clamp(20px, 5vw, 60px); max-width: 1400px; margin: 0 auto; }
-.section-head { margin-bottom: 56px; }
-.section-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
-.section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--orange); }
-.section-head h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.4rem, 6.5vw, 5.2rem); line-height: 0.95; letter-spacing: 0.005em; text-transform: uppercase; max-width: 20ch; }
-.section-head h2 .italic { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--gold); text-transform: none; letter-spacing: -0.005em; padding-block: 0.06em; line-height: 1.02; display: inline-block; }
-.section-head p { font-size: 1.05rem; line-height: 1.7; color: var(--ink-soft); max-width: 60ch; margin-top: 16px; }
+/* === Manifiesto · split editorial === */
+.dc-manifest { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(28px, 4vw, 60px); align-items: center; margin-top: 32px; }
+@media (max-width: 880px) { .dc-manifest { grid-template-columns: 1fr; } }
+.dc-manifest .photo { width: 100%; aspect-ratio: 4/5; background-size: cover; background-position: center; border-radius: 16px; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.35); }
+.dc-manifest .text h3 { font-family: var(--f-display); font-weight: 800; font-size: clamp(1.6rem, 3.2vw, 2.4rem); line-height: 1.05; letter-spacing: -0.018em; margin-bottom: 16px; }
+.dc-manifest .text h3 em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--orange); letter-spacing: -0.005em; padding-block: 0.06em; line-height: 1.02; display: inline-block; }
+.dc-manifest .text p { font-size: 1rem; line-height: 1.65; color: var(--ink-soft); margin-bottom: 14px; }
+.dc-manifest .text p b { color: var(--ink); font-weight: 700; }
+.dc-manifest .pull { font-family: var(--f-serif); font-style: italic; font-size: 1.4rem; line-height: 1.3; color: var(--orange); border-left: 3px solid var(--orange); padding-left: 18px; margin: 22px 0; }
 
-/* === Para quién es · 4 cards interactivas === */
-.audience-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-@media (max-width: 760px) { .audience-grid { grid-template-columns: 1fr; } }
-.audience-card { --mx: 50%; --my: 50%; position: relative; padding: 32px 30px 28px; background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: all 0.5s var(--ease); cursor: default; }
-.audience-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(380px circle at var(--mx) var(--my), rgba(255,90,31,0.16), transparent 55%); opacity: 0; transition: opacity 0.5s; }
-.audience-card:hover { border-color: rgba(255,90,31,0.45); transform: translateY(-6px); box-shadow: 0 24px 50px rgba(0,0,0,0.5), 0 0 30px rgba(255,90,31,0.10); }
-.audience-card:hover::after { opacity: 1; }
-.audience-card > * { position: relative; z-index: 2; }
-.audience-num { font-family: var(--f-display); font-size: 3.5rem; line-height: 1; color: rgba(255,90,31,0.18); letter-spacing: -0.04em; transition: color 0.4s, text-shadow 0.4s; }
-.audience-card:hover .audience-num { color: var(--orange); text-shadow: 0 0 32px rgba(255,90,31,0.55); }
-.audience-card h3 { font-family: var(--f-display); font-weight: 400; font-size: 1.9rem; line-height: 1; letter-spacing: 0.01em; text-transform: uppercase; margin: 14px 0 12px; }
-.audience-card p { font-size: 0.94rem; line-height: 1.65; color: var(--ink-soft); }
-.audience-card .arrow { position: absolute; top: 24px; right: 24px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line-strong); display: grid; place-items: center; color: var(--ink-soft); opacity: 0; transform: translate(8px, -4px) scale(0.85); transition: all 0.4s var(--ease); }
-.audience-card .arrow svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2.2; fill: none; }
-.audience-card:hover .arrow { opacity: 1; transform: translate(0, 0) scale(1); border-color: var(--orange); color: var(--orange); }
+/* === Audience cards (eventos / corridas / activaciones / lanzamientos) === */
+.dc-audience { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
+@media (max-width: 980px) { .dc-audience { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .dc-audience { grid-template-columns: 1fr; } }
+.dc-aud-card { --mx: 50%; --my: 50%; position: relative; padding: 26px 22px 22px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: all 0.45s var(--ease); cursor: default; }
+.dc-aud-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(360px circle at var(--mx) var(--my), rgba(255,90,31,0.10), transparent 55%); opacity: 0; transition: opacity 0.5s; }
+.dc-aud-card:hover { border-color: rgba(255,90,31,0.45); transform: translateY(-4px); box-shadow: 0 22px 44px -12px rgba(0,0,0,0.15); }
+.dc-aud-card:hover::after { opacity: 1; }
+.dc-aud-card > * { position: relative; z-index: 2; }
+.dc-aud-num { font-family: var(--f-display); font-weight: 800; font-size: 2.4rem; line-height: 1; color: rgba(255,90,31,0.22); letter-spacing: -0.03em; }
+.dc-aud-card:hover .dc-aud-num { color: var(--orange); }
+.dc-aud-card h4 { font-family: var(--f-display); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.012em; margin: 12px 0 8px; color: var(--ink); }
+.dc-aud-card p { font-size: 0.86rem; line-height: 1.55; color: var(--ink-soft); }
 
-/* === Servicios · split estampado + accesorios === */
-.svc-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 22px; align-items: stretch; }
-@media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr; } }
-.svc-card { position: relative; padding: 36px 32px 32px; background: var(--bg2); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; transition: all 0.4s var(--ease); display: flex; flex-direction: column; }
-.svc-card.primary { background: linear-gradient(135deg, rgba(255,90,31,0.10), rgba(255,90,31,0.02)); border-color: rgba(255,90,31,0.36); }
-.svc-card.primary::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--orange), var(--gold)); }
-.svc-card:hover { border-color: rgba(255,90,31,0.45); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-.svc-tag { display: inline-block; padding: 5px 12px; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); background: rgba(255,90,31,0.10); border: 1px solid rgba(255,90,31,0.3); border-radius: 100px; margin-bottom: 18px; font-weight: 700; }
-.svc-tag.lime { color: var(--lime); background: rgba(201,242,92,0.08); border-color: rgba(201,242,92,0.32); }
-.svc-card h3 { font-family: var(--f-display); font-weight: 400; font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 0.95; letter-spacing: 0.005em; text-transform: uppercase; margin-bottom: 14px; }
-.svc-card h3 .italic { font-family: var(--f-serif); font-style: italic; color: var(--gold); text-transform: none; letter-spacing: -0.005em; padding-block: 0.06em; line-height: 1.02; display: inline-block; }
-.svc-card p.lead { font-size: 1rem; line-height: 1.65; color: var(--ink); margin-bottom: 18px; }
-.svc-card .lst { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-.svc-card .lst li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.92rem; line-height: 1.55; color: var(--ink-soft); }
-.svc-card .lst li::before { content: ''; flex: 0 0 18px; width: 18px; height: 18px; border-radius: 50%; background: rgba(255,90,31,0.15); border: 1px solid rgba(255,90,31,0.42); margin-top: 2px; display: grid; place-items: center; }
-.svc-card .lst li b { color: var(--ink); font-weight: 700; }
-.svc-card.secondary .lst li::before { background: rgba(201,242,92,0.10); border-color: rgba(201,242,92,0.35); }
+/* === Capacidades 4 cards === */
+.dc-caps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 32px; }
+@media (max-width: 880px) { .dc-caps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .dc-caps { grid-template-columns: 1fr; } }
+.dc-cap-card { padding: 24px 20px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 12px; transition: all 0.35s var(--ease); }
+.dc-cap-card:hover { border-color: var(--orange); transform: translateY(-3px); box-shadow: 0 16px 32px -10px rgba(0,0,0,0.12); }
+.dc-cap-card .ix { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--orange); font-weight: 700; }
+.dc-cap-card h5 { font-family: var(--f-display); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.012em; margin: 10px 0 8px; color: var(--ink); }
+.dc-cap-card p { font-size: 0.86rem; line-height: 1.55; color: var(--ink-soft); }
 
-/* === Showcase / merch gallery === */
-.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-@media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
-.gallery-card { position: relative; aspect-ratio: 1/1; overflow: hidden; border-radius: 14px; background: var(--bg2); border: 1px solid var(--line); transition: all 0.4s var(--ease); cursor: pointer; }
-.gallery-card img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(50%) contrast(1.1) brightness(0.9); transition: transform 0.8s var(--ease), filter 0.5s; }
-.gallery-card:hover { border-color: rgba(255,90,31,0.55); transform: translateY(-4px); box-shadow: 0 16px 38px rgba(0,0,0,0.45), 0 0 30px rgba(255,90,31,0.12); }
-.gallery-card:hover img { filter: grayscale(0%) contrast(1) brightness(1); transform: scale(1.06); }
-.gallery-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.85)); }
-.gallery-card .label { position: absolute; bottom: 14px; left: 16px; right: 16px; z-index: 2; font-family: var(--f-display); font-size: 1.5rem; line-height: 1; letter-spacing: 0.015em; text-transform: uppercase; color: var(--ink); transition: color 0.3s; }
-.gallery-card:hover .label { color: var(--orange); }
-.gallery-card .tag { position: absolute; top: 12px; left: 12px; z-index: 2; padding: 4px 10px; font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); background: rgba(11,10,8,0.7); backdrop-filter: blur(8px); border: 1px solid var(--line-strong); border-radius: 100px; font-weight: 700; }
+/* === SEO ribbon === */
+.dc-seo-ribbon { display: flex; align-items: center; gap: 22px; padding: 16px 22px; background: rgba(242,193,43,0.08); border: 1px solid rgba(242,193,43,0.32); border-radius: 14px; margin: 24px 0 28px; flex-wrap: wrap; }
+.dc-seo-ribbon .seo-badge { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 800; padding: 5px 12px; background: rgba(11,10,8,0.5); border: 1px solid rgba(242,193,43,0.4); border-radius: 100px; flex-shrink: 0; }
+.dc-seo-ribbon p { font-size: 0.88rem; line-height: 1.55; color: rgba(244,236,220,0.75); flex: 1; min-width: 240px; margin: 0; }
+.dc-seo-ribbon p b { color: var(--bone); }
+
+/* === Casos grid editorial === */
+.dc-casos-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; margin-top: 28px; }
+@media (max-width: 980px) { .dc-casos-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; } .dc-caso.big { grid-column: span 2; } }
+@media (max-width: 540px) { .dc-casos-grid { grid-template-columns: 1fr; } .dc-caso.big { grid-column: auto; } }
+.dc-caso { position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 14px; background-size: cover; background-position: center; cursor: pointer; transition: transform 0.5s var(--ease); }
+.dc-caso.big { aspect-ratio: 16/10; grid-row: span 2; }
+.dc-caso::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.85) 100%); }
+.dc-caso:hover { transform: translateY(-4px); }
+.dc-caso .caso-meta { position: absolute; bottom: 16px; left: 18px; right: 18px; z-index: 2; color: var(--bone); }
+.dc-caso .caso-tag { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); font-weight: 700; display: block; margin-bottom: 8px; }
+.dc-caso h4 { font-family: var(--f-display); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.012em; line-height: 1.15; margin-bottom: 6px; }
+.dc-caso.big h4 { font-size: 1.5rem; }
+.dc-caso .caso-excerpt { font-size: 0.86rem; line-height: 1.55; color: rgba(244,236,220,0.78); margin-bottom: 10px; }
+.dc-caso .caso-link { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: 0.22em; color: var(--gold); font-weight: 700; text-transform: uppercase; }
 
 /* === Widget Try-On === */
-.tryon { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; padding: 32px; background: linear-gradient(135deg, rgba(255,90,31,0.06), rgba(242,193,43,0.03)); border: 1px solid rgba(255,90,31,0.22); border-radius: 22px; }
-@media (max-width: 900px) { .tryon { grid-template-columns: 1fr; } }
-.tryon-controls { display: flex; flex-direction: column; gap: 22px; }
-.tryon-step { padding: 16px 18px; background: var(--bg2); border: 1px solid var(--line); border-radius: 12px; transition: border-color 0.3s; }
-.tryon-step:hover { border-color: rgba(255,90,31,0.32); }
+.dc-widget-embed { margin-top: 28px; padding: 28px; background: var(--cream); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 48px -16px rgba(0,0,0,0.10); }
+.tryon-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 26px; }
+@media (max-width: 880px) { .tryon-grid { grid-template-columns: 1fr; } }
+.tryon-controls { display: flex; flex-direction: column; gap: 18px; }
+.tryon-step { padding: 14px 16px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 12px; }
 .tryon-step .step-lbl { font-family: var(--f-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
-.tryon-step .step-title { font-family: var(--f-display); font-size: 1.5rem; line-height: 1; letter-spacing: 0.015em; text-transform: uppercase; color: var(--ink); margin-bottom: 10px; }
+.tryon-step .step-title { font-family: var(--f-display); font-size: 1.1rem; font-weight: 700; letter-spacing: -0.012em; color: var(--ink); margin-bottom: 10px; }
 .product-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
 .product-tab { padding: 6px 12px; font-family: var(--f-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); background: transparent; border: 1px solid var(--line-strong); border-radius: 100px; cursor: pointer; transition: all 0.3s; }
-.product-tab:hover { color: var(--ink); border-color: rgba(255,90,31,0.45); }
-.product-tab.active { background: var(--orange); color: var(--bg); border-color: var(--orange); }
-.upload-zone { display: flex; align-items: center; gap: 14px; padding: 14px; border: 1px dashed var(--line-strong); border-radius: 10px; transition: border-color 0.3s; }
+.product-tab:hover { color: var(--ink); border-color: var(--orange); }
+.product-tab.active { background: var(--orange); color: var(--bone); border-color: var(--orange); }
+.upload-zone { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px dashed var(--line-strong); border-radius: 10px; transition: border-color 0.3s; }
 .upload-zone:hover { border-color: var(--orange); }
-.upload-btn { padding: 9px 14px; background: var(--orange); color: var(--bg); font-family: var(--f-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; border-radius: 100px; cursor: pointer; transition: transform 0.2s; }
+.upload-btn { padding: 9px 14px; background: var(--orange); color: var(--bone); font-family: var(--f-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; border-radius: 100px; cursor: pointer; transition: transform 0.2s; }
 .upload-btn:hover { transform: translateY(-1px); }
 .upload-label { font-family: var(--f-mono); font-size: 11px; color: var(--ink-soft); flex: 1; }
-.colorgrid { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
-.colorgrid button { width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: all 0.3s; outline: none; }
+.colorgrid { display: flex; gap: 8px; flex-wrap: wrap; }
+.colorgrid button { width: 30px; height: 30px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: all 0.3s; outline: none; }
 .colorgrid button:hover { transform: scale(1.12); }
 .colorgrid button.active { border-color: var(--ink); transform: scale(1.15); }
-.tryon-preview { position: relative; aspect-ratio: 1/1; background: var(--bg3); border-radius: 16px; overflow: hidden; border: 1px solid var(--line-strong); }
-.tryon-preview-img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.4s; }
-.tryon-preview-logo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 35%; max-height: 35%; opacity: 0; transition: opacity 0.4s; pointer-events: none; mix-blend-mode: multiply; }
+.tryon-preview { position: relative; aspect-ratio: 1/1; background: var(--paper); border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+.tryon-preview-img { width: 100%; height: 100%; object-fit: cover; }
+.tryon-preview-logo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 32%; max-height: 32%; opacity: 0; transition: opacity 0.4s; pointer-events: none; mix-blend-mode: multiply; }
 .tryon-preview-logo.has { opacity: 1; }
-.tryon-preview-meta { position: absolute; bottom: 14px; left: 14px; right: 14px; z-index: 2; display: flex; justify-content: space-between; align-items: center; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); }
-.tryon-preview-meta .live { display: inline-flex; align-items: center; gap: 6px; }
-.tryon-preview-meta .live::before { content: ''; width: 6px; height: 6px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 8px var(--lime); animation: dotPulse 1.6s infinite; }
+.tryon-preview-meta { position: absolute; bottom: 12px; left: 14px; right: 14px; z-index: 2; display: flex; justify-content: space-between; align-items: center; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); }
+.tryon-preview-meta .live { display: inline-flex; align-items: center; gap: 6px; color: var(--orange); font-weight: 700; }
+.tryon-preview-meta .live::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; box-shadow: 0 0 8px var(--orange); animation: pulse 1.6s infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,90,31,0.6); } 50% { box-shadow: 0 0 0 8px rgba(255,90,31,0); } }
 
-/* === Proceso (4 pasos) === */
-.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-@media (max-width: 900px) { .process-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 500px) { .process-grid { grid-template-columns: 1fr; } }
-.process-step { position: relative; padding: 26px 24px; background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.process-step::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--orange), transparent); }
-.process-step .num { font-family: var(--f-display); font-size: 3rem; line-height: 1; color: var(--orange); letter-spacing: -0.04em; padding-block: 0.04em; }
-.process-step h4 { font-family: var(--f-display); font-size: 1.4rem; letter-spacing: 0.015em; text-transform: uppercase; margin: 6px 0 8px; color: var(--ink); }
-.process-step p { font-size: 0.88rem; line-height: 1.55; color: var(--ink-soft); }
+/* === Testimonios === */
+.dc-testimonios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+@media (max-width: 880px) { .dc-testimonios { grid-template-columns: 1fr; } }
+.testi-card { padding: 28px 24px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 10px 24px -10px rgba(0,0,0,0.10); transition: transform 0.4s, box-shadow 0.4s; }
+.testi-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(0,0,0,0.18); }
+.testi-card .qm { font-family: var(--f-serif); font-style: italic; font-size: 4rem; line-height: 0.3; color: var(--orange); margin-bottom: 16px; }
+.testi-card .quote { font-family: var(--f-serif); font-style: italic; font-size: 1.05rem; line-height: 1.5; color: var(--ink); margin-bottom: 18px; }
+.testi-card .author { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: center; padding-top: 14px; border-top: 1px dashed var(--line); }
+.testi-card .author .n { width: 40px; height: 40px; border-radius: 50%; background: var(--orange); color: var(--bone); display: inline-flex; align-items: center; justify-content: center; font-family: var(--f-display); font-weight: 800; font-size: 1rem; }
+.testi-card .author .name { font-family: var(--f-display); font-weight: 700; font-size: 0.88rem; color: var(--ink); text-transform: uppercase; letter-spacing: -0.005em; display: block; }
+.testi-card .author .role { font-size: 0.72rem; color: var(--ink-soft); letter-spacing: 0.04em; display: block; margin-top: 2px; }
 
-/* === CTA === */
-.cta-section { position: relative; z-index: 5; padding: clamp(60px, 10vh, 110px) clamp(20px, 5vw, 60px); max-width: 1100px; margin: 0 auto; text-align: center; }
-.cta-card { padding: 60px 40px; border-radius: 24px; background: linear-gradient(135deg, rgba(255,90,31,0.14), rgba(242,193,43,0.05) 60%); border: 1px solid rgba(255,90,31,0.30); position: relative; overflow: hidden; }
-.cta-card::before { content: ''; position: absolute; top: -40%; right: -20%; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(255,90,31,0.20), transparent 70%); pointer-events: none; }
-.cta-card h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1; letter-spacing: 0.005em; text-transform: uppercase; margin-bottom: 18px; position: relative; }
-.cta-card h2 .italic { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--gold); text-transform: none; padding-block: 0.06em; line-height: 1.02; display: inline-block; }
-.cta-card p { font-size: 1.05rem; line-height: 1.65; color: var(--ink-soft); max-width: 60ch; margin: 0 auto 30px; position: relative; }
-.cta-card p strong { color: var(--ink); }
-.cta-row { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; position: relative; }
+/* === CTA final === */
+.dc-cta-final { padding: clamp(60px, 9vh, 100px) clamp(20px, 5vw, 60px); background: var(--bg); color: var(--bone); position: relative; overflow: hidden; }
+.dc-cta-final::before { content: ''; position: absolute; top: -30%; right: -10%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(255,90,31,0.20), transparent 70%); pointer-events: none; }
+.dc-cta-final::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(242,193,43,0.14), transparent 70%); pointer-events: none; }
+.dc-cta-final .content { position: relative; z-index: 2; max-width: 920px; }
+.dc-cta-final span.kick { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--gold); display: inline-block; margin-bottom: 14px; text-transform: uppercase; font-weight: 700; }
+.dc-cta-final h2 { font-family: var(--f-display); font-weight: 800; font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1; letter-spacing: -0.022em; margin-bottom: 16px; }
+.dc-cta-final h2 em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--orange); letter-spacing: -0.005em; padding-block: 0.06em; line-height: 1.02; display: inline-block; }
+.dc-cta-final p { font-size: 1.05rem; line-height: 1.6; color: rgba(244,236,220,0.75); max-width: 60ch; margin-bottom: 28px; }
+.dc-cta-final .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
-.foot { padding: 30px clamp(20px, 5vw, 60px); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; border-top: 1px solid var(--line); font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); position: relative; z-index: 5; }
+/* === Footer === */
+.dc-footer { background: var(--bg); color: var(--bone); padding: 60px clamp(20px, 5vw, 60px) 26px; position: relative; overflow: hidden; border-top: 3px solid var(--orange); }
+.dc-footer::before { content: ''; position: absolute; top: 0; right: 0; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(255,90,31,0.18), transparent 70%); pointer-events: none; transform: translate(30%, -30%); }
+.dc-foot-top { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; padding-bottom: 36px; margin-bottom: 36px; border-bottom: 1px solid rgba(244,236,220,0.12); position: relative; z-index: 2; }
+@media (max-width: 880px) { .dc-foot-top { grid-template-columns: 1fr; } }
+.dc-foot-news .kick { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.24em; color: var(--orange); text-transform: uppercase; font-weight: 700; margin-bottom: 12px; display: inline-block; }
+.dc-foot-news h4 { font-family: var(--f-display); font-weight: 800; font-size: 1.8rem; letter-spacing: -0.018em; line-height: 1.08; margin-bottom: 14px; }
+.dc-foot-news h4 em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--orange); letter-spacing: -0.005em; padding-block: 0.06em; line-height: 1.02; display: inline-block; }
+.dc-foot-news p { font-size: 0.92rem; color: rgba(244,236,220,0.62); line-height: 1.55; margin-bottom: 16px; }
+.dc-foot-news form { display: flex; gap: 8px; flex-wrap: wrap; }
+.dc-foot-news input { flex: 1; min-width: 240px; padding: 14px 18px; border-radius: 100px; border: 1px solid rgba(244,236,220,0.22); background: rgba(244,236,220,0.06); color: var(--bone); font-family: var(--f-body); font-size: 0.88rem; }
+.dc-foot-news input::placeholder { color: rgba(244,236,220,0.40); }
+.dc-foot-news button { background: var(--orange); color: var(--bg); padding: 14px 22px; border-radius: 100px; font-family: var(--f-display); font-weight: 800; font-size: 0.86rem; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer; transition: transform 0.2s, box-shadow 0.3s; }
+.dc-foot-news button:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,90,31,0.4); }
 
-/* Reveal animations */
-.reveal-up { opacity: 0; transform: translateY(40px); }
+.dc-foot-contact { padding: 22px 22px; background: linear-gradient(135deg, rgba(255,90,31,0.12), rgba(242,193,43,0.07)); border: 1px solid rgba(255,90,31,0.36); border-radius: 14px; }
+.dc-foot-contact .kick { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--orange); text-transform: uppercase; font-weight: 700; margin-bottom: 10px; display: inline-block; }
+.dc-foot-contact h5 { font-family: var(--f-display); font-weight: 800; font-size: 1.25rem; color: var(--bone); margin-bottom: 6px; }
+.dc-foot-contact p { font-size: 0.82rem; color: rgba(244,236,220,0.65); line-height: 1.5; margin-bottom: 14px; }
+.dc-foot-contact ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; font-size: 0.86rem; }
+.dc-foot-contact ul li a { color: var(--bone); }
+.dc-foot-contact ul li.wa a { color: var(--orange); font-weight: 800; }
 
-/* Brand bar */
-.brand-bar { display: flex; height: 4px; width: 100%; z-index: 10; }
-.brand-bar > span { flex: 1; }
-.brand-bar > span:nth-child(1) { background: var(--orange); }
-.brand-bar > span:nth-child(2) { background: var(--orange-deep); }
-.brand-bar > span:nth-child(3) { background: var(--gold); }
-.brand-bar > span:nth-child(4) { background: var(--lime); }
-.brand-bar > span:nth-child(5) { background: var(--ink); }
+.dc-foot-cols { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 26px; margin-bottom: 32px; position: relative; z-index: 2; }
+@media (max-width: 980px) { .dc-foot-cols { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .dc-foot-cols { grid-template-columns: 1fr; } }
+.dc-foot-cols .brand img { height: 56px; width: auto; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.95); padding: 6px; margin-bottom: 14px; }
+.dc-foot-cols .brand p { font-size: 0.82rem; color: rgba(244,236,220,0.62); line-height: 1.6; margin-bottom: 14px; }
+.dc-foot-cols .brand b { color: var(--orange); font-weight: 700; }
+.dc-foot-cols .brand .socials { display: flex; gap: 8px; flex-wrap: wrap; }
+.dc-foot-cols .brand .socials span { width: 36px; height: 36px; border-radius: 50%; background: rgba(244,236,220,0.06); border: 1px solid rgba(244,236,220,0.14); display: inline-flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 10px; color: var(--bone); font-weight: 700; letter-spacing: 0.04em; cursor: pointer; transition: all 0.25s; }
+.dc-foot-cols .brand .socials span:hover { background: var(--orange); border-color: var(--orange); }
+.dc-foot-cols .col-head { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.24em; color: var(--orange); text-transform: uppercase; font-weight: 700; margin-bottom: 14px; display: block; }
+.dc-foot-cols .col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; font-size: 0.82rem; color: rgba(244,236,220,0.62); }
+.dc-foot-cols .col ul li { cursor: pointer; transition: color 0.25s; }
+.dc-foot-cols .col ul li:hover { color: var(--orange); }
+
+.dc-foot-badges { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; padding: 16px 22px; background: rgba(244,236,220,0.04); border: 1px solid rgba(244,236,220,0.10); border-radius: 14px; margin-bottom: 22px; position: relative; z-index: 2; }
+.dc-foot-badges .lbl { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--bone); text-transform: uppercase; font-weight: 700; }
+.dc-foot-badges .list { display: flex; gap: 18px; flex-wrap: wrap; }
+.dc-foot-badges .list span { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.10em; color: rgba(244,236,220,0.65); text-transform: uppercase; }
+
+.dc-foot-bottom { padding-top: 18px; border-top: 1px solid rgba(244,236,220,0.10); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.72rem; color: rgba(244,236,220,0.55); position: relative; z-index: 2; font-family: var(--f-mono); letter-spacing: 0.04em; }
+.dc-foot-bottom .links { display: flex; gap: 18px; }
+
+/* === Reveal === */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 540px) {
+  .dc-shell { margin: 0; border-radius: 0; }
+}
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-trail" id="cursorTrail"></div>
-<div class="bg-grain"></div>
-<div class="bg-orb bg-orb-1"></div>
-<div class="bg-orb bg-orb-2"></div>
+<!-- BROWSER SHELL · estilo Digitals Cut -->
+<div class="dc-shell">
+  <div class="browser-bar">
+    <span class="dot" style="background: #FF5A3C;"></span>
+    <span class="dot" style="background: #F2C12B;"></span>
+    <span class="dot" style="background: #A3E635;"></span>
+    <span class="url">— laestampa.cl/eventos · merch para activaciones · digitals cut</span>
+  </div>
 
-<header class="topbar">
-  <a href="#" class="topbar-brand"><span class="dot"></span>LA ESTAMPA · MERCH</a>
-  <nav class="topbar-nav">
-    <a href="#audience">Eventos</a>
-    <a href="#services">Servicios</a>
-    <a href="#showcase">Showcase</a>
-    <a href="#tryon">Try-On</a>
-    <a href="#proceso">Proceso</a>
-  </nav>
-  <a href="#cta" class="topbar-cta">Cotizar →</a>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg">
-    <source src="assets/video/digitals-cut.mp4" type="video/mp4"/>
-  </video>
-  <div class="holo" style="top: -60px; right: -40px;">MERCH</div>
-  <div class="holo gold" style="bottom: 80px; left: -60px;">EVENTOS</div>
-
-  <div class="hero-content">
-    <div>
-      <span class="hero-kicker"><span class="dot"></span>Producción 7 días · Stock chileno</span>
-      <h1>
-        Merch ultra-rápido<br/>
-        para tu <span class="em">evento</span><br/>
-        <span class="italic">o activación.</span>
-      </h1>
-      <p class="hero-sub">
-        Especialistas en <strong>estampado textil DTF</strong>. Polos, gorras, mochilas, totes — listos para tu corrida, lanzamiento de marca o activación corporativa. <strong>Complementamos</strong> con tazas, lápices y accesorios para entregar el kit completo.
-      </p>
-      <div class="hero-row">
-        <a href="#tryon" class="btn-primary">Probar widget Try-On →</a>
-        <a href="#cta" class="btn-ghost">Cotizar ahora</a>
+  <!-- HERO -->
+  <section class="dc-hero">
+    <video class="dc-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg">
+      <source src="assets/video/hero-horizontal.mp4" type="video/mp4"/>
+    </video>
+    <div class="dc-nav">
+      <div class="dc-nav-brand">
+        <img src="assets/logo/laestampa-logo-real.jpg" alt="La Estampa Textil"/>
+        <span class="meta">· MERCH PARA EVENTOS</span>
+      </div>
+      <div class="dc-menu">
+        <span>EVENTOS</span>
+        <span>SERVICIOS</span>
+        <span>CASOS</span>
+        <span>WIDGET</span>
+        <a class="pill" href="#cta">COTIZAR ★</a>
       </div>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">7d</div><div class="lbl">Producción promedio</div></div>
-      <div class="hero-stat"><div class="num">500+</div><div class="lbl">Unidades min/evento</div></div>
-      <div class="hero-stat"><div class="num">DTF</div><div class="lbl">Estampado premium</div></div>
+    <div class="dc-content">
+      <span class="dc-badge"><span class="star">★</span> Campaña Merch · Eventos · Activaciones · Corridas</span>
+      <h1>Merch ultra-rápido · <em>tinta firme</em> para tu evento o activación.</h1>
+      <p class="dc-sub"><strong>4 años de oficio en estampado textil DTF</strong>. Polos, gorras, mochilas, totes para corridas, activaciones BTL, lanzamientos y eventos corporativos. <strong>Complementamos</strong> con tazas, lápices y accesorios para entregar el kit completo del evento — sin saltar entre 3 proveedores.</p>
+      <div class="dc-cta-row">
+        <a class="dc-cta-primary" href="#widget">Probar widget en vivo →</a>
+        <a class="dc-cta-secondary" href="#cta">Cotizar directamente</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS · cream -->
+  <div class="dc-section bg-cream" style="padding-top: 2.2rem; padding-bottom: 2.2rem;">
+    <div class="dc-stats-row">
+      <div class="dc-stat"><div class="v">4 <em>años</em></div><span class="k">de oficio textil</span></div>
+      <div class="dc-stat"><div class="v">5-7d</div><span class="k">producción promedio</span></div>
+      <div class="dc-stat"><div class="v">DTF</div><span class="k">estampado premium</span></div>
+      <div class="dc-stat"><div class="v">CL</div><span class="k">cobertura nacional</span></div>
     </div>
   </div>
-</section>
 
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Corridas</span><span>Activaciones de marca</span><span>Eventos corporativos</span><span>Lanzamientos</span><span>Stands feria</span><span>Equipos deportivos</span><span>Festivales</span>
-    <span>Corridas</span><span>Activaciones de marca</span><span>Eventos corporativos</span><span>Lanzamientos</span><span>Stands feria</span><span>Equipos deportivos</span><span>Festivales</span>
+  <!-- MANIFIESTO -->
+  <div class="dc-section bg-paper">
+    <span class="dc-kicker">— MANIFIESTO · POR QUÉ NOS ELIGEN</span>
+    <div class="dc-manifest">
+      <div class="photo" style="background-image: url('assets/img/taller-hero.png');"></div>
+      <div class="text">
+        <h3>El brief que <em>llega un lunes</em> y necesita estar en bodega el viernes.</h3>
+        <p>Productora, agencia o brand manager organizando un evento contra-reloj — 200 poleras staff con la gráfica del lanzamiento, listas antes del viernes. Cualquier proveedor te dice "sí". <b>Pocos te entregan con calidad y a tiempo.</b></p>
+        <div class="pull">"La diferencia entre proveedor y partner está en el lavado número 50."</div>
+        <p>Eso lo construimos en 4 años de oficio. Plotters Epson certificados, gestión de color técnica, gente que sabe coser. Sin marketing-speak. <b>El resultado: producción coordinada con tu fecha de evento, mockup digital previo y entrega 5-7 días antes — sin sorpresas.</b></p>
+        <p style="font-family: var(--f-mono); font-size: 0.78rem; letter-spacing: 0.1em; color: var(--orange); text-transform: uppercase;">— PRISCILA SARMIENTO · FUNDADORA</p>
+      </div>
+    </div>
   </div>
+
+  <!-- AUDIENCE · Eventos / Activaciones / Corridas -->
+  <div class="dc-section bg-cream" id="eventos">
+    <span class="dc-kicker">— PARA QUIÉN ES</span>
+    <h2>Diseñado para <em>eventos en movimiento</em>.</h2>
+    <p class="dc-sub" style="max-width: 64ch;">Si organizas activaciones con identidad de marca y necesitas merch de calidad en plazos cortos — sin pedidos mínimos absurdos ni espera de 30 días — esta es tu fábrica.</p>
+    <div class="dc-audience">
+      <article class="dc-aud-card reveal">
+        <div class="dc-aud-num">01</div>
+        <h4>Corridas &amp; running</h4>
+        <p>Poleras técnicas + dorsales personalizados + kits de bienvenida. Producción coordinada con tu fecha — entregamos 5-7 días antes.</p>
+      </article>
+      <article class="dc-aud-card reveal">
+        <div class="dc-aud-num">02</div>
+        <h4>Activaciones de marca</h4>
+        <p>BTL en mall, vía pública, festivales. Kit completo: polo staff + caps + mochilas + accesorios para sampling.</p>
+      </article>
+      <article class="dc-aud-card reveal">
+        <div class="dc-aud-num">03</div>
+        <h4>Eventos corporativos</h4>
+        <p>Convenciones, off-sites, premios. Merch elegante para asistentes + uniformes para organizadores. Desde 50 unidades.</p>
+      </article>
+      <article class="dc-aud-card reveal">
+        <div class="dc-aud-num">04</div>
+        <h4>Lanzamientos &amp; festivales</h4>
+        <p>Limited edition merch para lanzamiento de producto, festivales musicales, eventos deportivos. Series cortas con valor coleccionable.</p>
+      </article>
+    </div>
+  </div>
+
+  <!-- CAPACIDADES TÉCNICAS -->
+  <div class="dc-section bg-paper" id="servicios">
+    <span class="dc-kicker">— CAPACIDADES TÉCNICAS</span>
+    <h2>4 técnicas · <em>cada una en su lugar.</em></h2>
+    <p class="dc-sub" style="max-width: 64ch;">Te asesoramos qué técnica te conviene según prenda, cantidad, color y durabilidad esperada del evento. Sin venderte la que más nos sirve.</p>
+    <div class="dc-caps">
+      <div class="dc-cap-card reveal">
+        <div class="ix">01</div>
+        <h5>Sublimación</h5>
+        <p>Tinta integrada a la fibra. Color firme, suave al tacto. Ideal poliéster y mezclas. 60+ lavados.</p>
+      </div>
+      <div class="dc-cap-card reveal">
+        <div class="ix">02</div>
+        <h5>DTF · film</h5>
+        <p>Impresión sobre film + termoadhesivo. Cero límite de color. Funciona en casi cualquier tela. <strong>Nuestra fuerte para activaciones.</strong></p>
+      </div>
+      <div class="dc-cap-card reveal">
+        <div class="ix">03</div>
+        <h5>Bordado</h5>
+        <p>Hilo industrial · acabado corporativo premium. Ideal logo bolsillo, escudos institucionales y gorras.</p>
+      </div>
+      <div class="dc-cap-card reveal">
+        <div class="ix">04</div>
+        <h5>Complementos</h5>
+        <p>Tazas, lápices, libretas, llaveros. <em>No es nuestro fuerte</em>, pero lo curamos con partners para que entregues kit completo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASOS · grid editorial -->
+  <div class="dc-section bg-dark" id="casos">
+    <span class="dc-kicker">— CASOS · ESTAMPADO EN ACCIÓN</span>
+    <h2>Lo que entregamos cuando <em>el deadline aprieta</em>.</h2>
+    <p class="dc-sub" style="max-width: 64ch;">Activaciones reales producidas las últimas semanas. Cada caso con timing real, cantidad real y técnica usada — sin maquillaje.</p>
+
+    <div class="dc-seo-ribbon">
+      <span class="seo-badge">★ SEO + AEO + GEO</span>
+      <p>Cada caso indexado para que cuando un brand manager pregunte a ChatGPT por proveedores de merch para activaciones en Chile, <b>La Estampa aparezca con casos y métricas verificables</b>.</p>
+    </div>
+
+    <div class="dc-casos-grid">
+      <div class="dc-caso big" style="background-image: url('assets/img/pop-hero.png');">
+        <div class="caso-meta">
+          <span class="caso-tag">AGENCIA · ACTIVACIÓN BTL</span>
+          <h4>200 poleras staff · lunes brief, viernes en bodega.</h4>
+          <p class="caso-excerpt">Activación nacional con timing apretado. DTF para soportar lavados y sol. Repetición desde el segundo evento.</p>
+          <a class="caso-link">LEER CASO COMPLETO →</a>
+        </div>
+      </div>
+      <div class="dc-caso" style="background-image: url('assets/img/taller-polera.png');">
+        <div class="caso-meta">
+          <span class="caso-tag">CORRIDA · RUNNING</span>
+          <h4>Polos técnicos + dorsales 5K corporate.</h4>
+          <a class="caso-link">VER CASO →</a>
+        </div>
+      </div>
+      <div class="dc-caso" style="background-image: url('assets/img/taller-mesa.png');">
+        <div class="caso-meta">
+          <span class="caso-tag">B2B · ONBOARDING</span>
+          <h4>Kit nuevo empleado · 200 ingresos/mes retail.</h4>
+          <a class="caso-link">VER CASO →</a>
+        </div>
+      </div>
+      <div class="dc-caso" style="background-image: url('assets/rrss/tinydesk-31min.png');">
+        <div class="caso-meta">
+          <span class="caso-tag">FESTIVAL · LIMITED</span>
+          <h4>Vestuario producción festival musical.</h4>
+          <a class="caso-link">VER CASO →</a>
+        </div>
+      </div>
+      <div class="dc-caso" style="background-image: url('assets/img/pop-polo.png');">
+        <div class="caso-meta">
+          <span class="caso-tag">CORPORATE · LANZAMIENTO</span>
+          <h4>Merch lanzamiento producto · 500 unidades.</h4>
+          <a class="caso-link">VER CASO →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WIDGET TRY-ON -->
+  <div class="dc-section bg-paper" id="widget">
+    <span class="dc-kicker">— WIDGET EN VIVO · MERCH PREVIEW</span>
+    <h2>Sube tu logo · <em>previsualiza en producto</em> · cotiza.</h2>
+    <p class="dc-sub" style="max-width: 68ch;">Antes de mandar el brief: ¿cómo se va a ver tu logo en la polera o el tote real? Acá lo previsualizas. El widget aplica tu logo sobre productos base — cero sorpresas al recibir el pedido.</p>
+    <div class="dc-widget-embed">
+      <div class="tryon-grid">
+        <div class="tryon-controls">
+          <div class="tryon-step">
+            <div class="step-lbl">Paso 01 · Producto</div>
+            <div class="step-title">Elige un producto</div>
+            <div class="product-tabs" id="productTabs">
+              <button class="product-tab active" data-product="tshirt">Polera</button>
+              <button class="product-tab" data-product="cap">Gorra</button>
+              <button class="product-tab" data-product="backpack">Mochila</button>
+              <button class="product-tab" data-product="mug">Taza</button>
+              <button class="product-tab" data-product="notebook">Libreta</button>
+              <button class="product-tab" data-product="tumbler">Termo</button>
+            </div>
+          </div>
+          <div class="tryon-step">
+            <div class="step-lbl">Paso 02 · Variante</div>
+            <div class="step-title">Color / acabado</div>
+            <div class="colorgrid" id="variantGrid">
+              <button data-variant="1" class="active" style="background: #1a1a1a;" aria-label="Negro"></button>
+              <button data-variant="2" style="background: #f4ecdc;" aria-label="Bone"></button>
+              <button data-variant="3" style="background: #FF5A1F;" aria-label="DTF Orange"></button>
+              <button data-variant="4" style="background: #C9F25C;" aria-label="Lime"></button>
+            </div>
+          </div>
+          <div class="tryon-step">
+            <div class="step-lbl">Paso 03 · Logo</div>
+            <div class="step-title">Sube tu logo</div>
+            <div class="upload-zone">
+              <label for="logoInput" class="upload-btn">Elegir archivo</label>
+              <input type="file" id="logoInput" accept="image/*" style="display:none"/>
+              <span class="upload-label" id="logoLabel">PNG con fondo transparente</span>
+            </div>
+          </div>
+        </div>
+        <div class="tryon-preview">
+          <img id="previewImg" class="tryon-preview-img" src="assets/merch/tshirt-1.jpg" alt="Producto preview"/>
+          <img id="previewLogo" class="tryon-preview-logo" alt=""/>
+          <div class="tryon-preview-meta">
+            <span class="live">Preview live</span>
+            <span id="previewMeta">tshirt · variante 01</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIOS -->
+  <div class="dc-section bg-cream">
+    <span class="dc-kicker">— LO QUE DICEN MARCAS QUE YA CONFIARON</span>
+    <h2>Tres voces · <em>tres veces</em> que el deadline se cumplió.</h2>
+    <div class="dc-testimonios">
+      <div class="testi-card">
+        <div class="qm">"</div>
+        <p class="quote">Cumplieron un brief imposible. Lunes en la noche pedí 240 poleras para staff del lanzamiento del viernes. El miércoles ya estaban en bodega. El estampado aguanta, los talles vinieron correctos, todo.</p>
+        <div class="author"><span class="n">C</span><div><span class="name">Camila R.</span><span class="role">Productora · agencia activación</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="qm">"</div>
+        <p class="quote">Pedimos kits onboarding mensuales para nuestros 200 ingresos. Manta + pañoleta + tote, todo a brand book. Tres meses sin un solo error de talla o color. Y la línea eco le agregó valor narrativo al kit.</p>
+        <div class="author"><span class="n">M</span><div><span class="name">Matías L.</span><span class="role">Head of People · retail nacional</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="qm">"</div>
+        <p class="quote">Queríamos cubrealarmas con la gráfica del lanzamiento y prevención nos rebotó el primer proveedor por flama. La Estampa volvió a fabricar con sublimación reforzada UV en 4 días. Mejor que el inicial.</p>
+        <div class="author"><span class="n">F</span><div><span class="name">Francisca H.</span><span class="role">Brand Manager · inmobiliaria premium</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA FINAL -->
+  <div class="dc-cta-final" id="cta">
+    <div class="content">
+      <span class="kick">— DECIDE HOY · TU PEDIDO EMPIEZA MAÑANA</span>
+      <h2>El brief que cuesta menos · es <em>el que ya partió.</em></h2>
+      <p>Cotización en menos de 24 horas hábiles. Mockup digital incluido. 4 años de oficio detrás de cada hilo. Coordinación directa con el evento.</p>
+      <div class="ctas">
+        <a class="dc-cta-primary" href="https://wa.me/56992528233?text=Hola%2C%20necesito%20cotizar%20merch%20para%20un%20evento" target="_blank" rel="noopener">Cotizar por WhatsApp →</a>
+        <a class="dc-cta-secondary" href="#widget">Probar widget primero</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="dc-footer">
+    <div class="dc-foot-top">
+      <div class="dc-foot-news">
+        <span class="kick">📩 NEWSLETTER · OFICIO · 1× MES</span>
+        <h4>Casos editoriales <em>en tu inbox</em>.</h4>
+        <p>1 mail por mes · casos reales con métricas · plantillas de brief para tu equipo · descuentos en repeticiones. Sin spam.</p>
+        <form onsubmit="event.preventDefault(); alert('¡Gracias! Te enviaremos el primer newsletter pronto.');">
+          <input type="email" placeholder="tu@empresa.cl" required/>
+          <button type="submit">Suscribirme</button>
+        </form>
+      </div>
+      <div class="dc-foot-contact">
+        <span class="kick">★ HABLA CON PRISCILA</span>
+        <h5>Priscila Sarmiento</h5>
+        <p>Founder · responde personalmente todos los briefs B2B en menos de 24h.</p>
+        <ul>
+          <li><a>📞 +56 9 9252 8233</a></li>
+          <li><a>✉ priscila@laestampa.cl</a></li>
+          <li class="wa"><a href="https://wa.me/56992528233" target="_blank">💬 WhatsApp directo →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dc-foot-cols">
+      <div class="brand">
+        <img src="assets/logo/laestampa-logo-real.jpg" alt="La Estampa Textil"/>
+        <p>4 años de oficio textil. Plotters Epson certificados. Sublimación, DTF, estampado y bordado. Trabajamos con agencias, productoras, marcas, retail y B2C. <b>Saben lo que hacen.</b></p>
+        <div class="socials">
+          <span>IG</span><span>FB</span><span>IN</span><span>YT</span><span>PIN</span>
+        </div>
+      </div>
+      <div class="col">
+        <span class="col-head">SERVICIOS</span>
+        <ul>
+          <li>Sublimación</li>
+          <li>DTF transfer</li>
+          <li>Bordado industrial</li>
+          <li>Merch corporativo</li>
+          <li>Eventos &amp; activaciones</li>
+        </ul>
+      </div>
+      <div class="col">
+        <span class="col-head">EVENTOS</span>
+        <ul>
+          <li>Corridas &amp; running</li>
+          <li>Activaciones BTL</li>
+          <li>Festivales</li>
+          <li>Lanzamientos</li>
+          <li>Onboarding corporativo</li>
+        </ul>
+      </div>
+      <div class="col">
+        <span class="col-head">RECURSOS</span>
+        <ul>
+          <li>Widget Try-On</li>
+          <li>Plantilla brief</li>
+          <li>Catálogo bases</li>
+          <li>Blog editorial</li>
+        </ul>
+      </div>
+      <div class="col">
+        <span class="col-head">TALLER</span>
+        <ul>
+          <li>📍 Av. Santa Rosa 1234<br/>Estación Central, Santiago</li>
+          <li>🕒 Lun-Vie · 09:00 - 18:30</li>
+          <li>📞 +56 9 9252 8233</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dc-foot-badges">
+      <span class="lbl">★ CERTIFICACIONES &amp; PARTNERS</span>
+      <div class="list">
+        <span>EPSON Certified</span>
+        <span>OEKO-TEX 100</span>
+        <span>ISO 9001</span>
+        <span>Sello Eco CL</span>
+      </div>
+    </div>
+
+    <div class="dc-foot-bottom">
+      <div>© 2026 La Estampa Textil · Priscila Sarmiento SpA · Todos los derechos reservados</div>
+      <div class="links">
+        <span>Términos</span>
+        <span>Privacidad</span>
+        <span>Cookies</span>
+        <a href="https://laestampatextil.digitalsagencia.cl" style="color: var(--orange);">↗ Web madre</a>
+      </div>
+    </div>
+  </footer>
+
 </div>
-
-<!-- AUDIENCE -->
-<section class="section" id="audience">
-  <div class="section-head reveal-up">
-    <span class="section-eyebrow">Para quién es</span>
-    <h2>Diseñado para <span class="italic">eventos en movimiento</span>.</h2>
-    <p>Si organizas eventos con identidad de marca y necesitas merch de calidad en plazos cortos — sin pedidos mínimos absurdos ni espera de 30 días — esta es tu fábrica.</p>
-  </div>
-  <div class="audience-grid">
-
-    <article class="audience-card reveal-up">
-      <div class="audience-num">01</div>
-      <h3>Corridas &amp; running</h3>
-      <p>Poleras técnicas + dorsales personalizados + medallas y kits de bienvenida. Producción coordinada con tu fecha de evento — entregamos 5-7 días antes.</p>
-      <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round"/></svg></span>
-    </article>
-
-    <article class="audience-card reveal-up">
-      <div class="audience-num">02</div>
-      <h3>Activaciones de marca</h3>
-      <p>BTL en mall, vía pública, festivales. Kit completo: polera staff + caps + mochilas + accesorios para sampling. Coordinación con tu agencia de eventos.</p>
-      <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round"/></svg></span>
-    </article>
-
-    <article class="audience-card reveal-up">
-      <div class="audience-num">03</div>
-      <h3>Eventos corporativos</h3>
-      <p>Convenciones, off-sites, premios. Merch elegante para asistentes + uniformes para organizadores. Volúmenes desde 50 unidades.</p>
-      <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round"/></svg></span>
-    </article>
-
-    <article class="audience-card reveal-up">
-      <div class="audience-num">04</div>
-      <h3>Lanzamientos &amp; festivales</h3>
-      <p>Limited edition merch para lanzamiento de producto, festivales musicales, eventos deportivos. Series cortas con valor de coleccionable.</p>
-      <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round"/></svg></span>
-    </article>
-
-  </div>
-</section>
-
-<!-- SERVICIOS -->
-<section class="section" id="services">
-  <div class="section-head reveal-up">
-    <span class="section-eyebrow">Lo que hacemos</span>
-    <h2>Estampado textil <span class="italic">es nuestro fuerte</span>.</h2>
-    <p>Lo demás lo complementamos para que entregues el kit completo del evento sin saltar entre 3 proveedores.</p>
-  </div>
-  <div class="svc-grid">
-
-    <article class="svc-card primary reveal-up">
-      <span class="svc-tag">Core · DTF + serigrafía</span>
-      <h3>Estampado textil <span class="italic">premium</span>.</h3>
-      <p class="lead">Tecnología <strong>DTF (Direct To Film)</strong> para colores vibrantes y duración real. Serigrafía para volúmenes grandes y curados perfectos. Calidad textil garantizada por contrato.</p>
-      <ul class="lst">
-        <li><b>Polos, poleras, polerones</b> · uniformes staff + merch para asistentes</li>
-        <li><b>Gorras, jockeys, beanies</b> · bordado + DTF + transfer alta resolución</li>
-        <li><b>Mochilas, totes, bolsos</b> · ideales para sampling y promoción BTL</li>
-        <li><b>Toallas técnicas</b> · running + crossfit + outdoor</li>
-        <li><b>Cuellos &amp; bandanas</b> · para corridas y eventos outdoor</li>
-      </ul>
-    </article>
-
-    <article class="svc-card secondary reveal-up">
-      <span class="svc-tag lime">Complemento · Merch</span>
-      <h3>Accesorios <span class="italic">de marca</span>.</h3>
-      <p class="lead">No es nuestro fuerte, pero <strong>lo complementamos</strong> para que no salgas a buscar otro proveedor. Curamos calidad con partners.</p>
-      <ul class="lst">
-        <li><b>Tazas + termos</b> · sublimación full color</li>
-        <li><b>Lápices, libretas</b> · grabado láser + estampado</li>
-        <li><b>Llaveros, pins, parches</b> · tipo coleccionables</li>
-        <li><b>Bolsas eco</b> · yute + cotton orgánico</li>
-      </ul>
-    </article>
-
-  </div>
-</section>
-
-<!-- SHOWCASE -->
-<section class="section" id="showcase">
-  <div class="section-head reveal-up">
-    <span class="section-eyebrow">Showcase · productos reales</span>
-    <h2>Lo que entregamos <span class="italic">esta semana</span>.</h2>
-    <p>Productos producidos las últimas 2 semanas en estampado real. Para verlos con tu marca aplicada, pasa al Try-On de abajo.</p>
-  </div>
-  <div class="gallery">
-    <div class="gallery-card reveal-up"><span class="tag">Polera DTF</span><img src="assets/merch/tshirt-1.jpg" alt="Polera DTF"/><span class="label">Polera staff.</span></div>
-    <div class="gallery-card reveal-up"><span class="tag">Gorra</span><img src="assets/merch/cap-1.jpg" alt="Gorra"/><span class="label">Gorra event.</span></div>
-    <div class="gallery-card reveal-up"><span class="tag">Mochila</span><img src="assets/merch/backpack-1.jpg" alt="Mochila"/><span class="label">Mochila kit.</span></div>
-    <div class="gallery-card reveal-up"><span class="tag">Taza</span><img src="assets/merch/mug-1.jpg" alt="Taza"/><span class="label">Taza sublimación.</span></div>
-    <div class="gallery-card reveal-up"><span class="tag">Libreta</span><img src="assets/merch/notebook-1.jpg" alt="Libreta"/><span class="label">Libreta evento.</span></div>
-    <div class="gallery-card reveal-up"><span class="tag">Termo</span><img src="assets/merch/tumbler-1.jpg" alt="Termo"/><span class="label">Termo brand.</span></div>
-    <div class="gallery-card reveal-up"><span class="tag">Lápiz</span><img src="assets/merch/pencil-1.jpg" alt="Lápiz"/><span class="label">Lápiz láser.</span></div>
-    <div class="gallery-card reveal-up"><span class="tag">Llavero</span><img src="assets/merch/keychain-1.jpg" alt="Llavero"/><span class="label">Llavero pin.</span></div>
-  </div>
-</section>
-
-<!-- WIDGET TRY-ON -->
-<section class="section" id="tryon">
-  <div class="section-head reveal-up">
-    <span class="section-eyebrow">Widget Try-On · live</span>
-    <h2>Sube tu logo y <span class="italic">míralo en producto</span>.</h2>
-    <p>Preview en vivo de cómo se verá tu marca sobre 5 productos base. Es un mockup rápido para evaluar legibilidad y composición — la prueba real va con muestra física antes de producción.</p>
-  </div>
-  <div class="tryon">
-
-    <div class="tryon-controls">
-
-      <div class="tryon-step">
-        <div class="step-lbl">Paso 01 · Producto</div>
-        <div class="step-title">Elige un producto</div>
-        <div class="product-tabs" id="productTabs">
-          <button class="product-tab active" data-product="tshirt">Polera</button>
-          <button class="product-tab" data-product="cap">Gorra</button>
-          <button class="product-tab" data-product="backpack">Mochila</button>
-          <button class="product-tab" data-product="mug">Taza</button>
-          <button class="product-tab" data-product="notebook">Libreta</button>
-          <button class="product-tab" data-product="tumbler">Termo</button>
-        </div>
-      </div>
-
-      <div class="tryon-step">
-        <div class="step-lbl">Paso 02 · Variante</div>
-        <div class="step-title">Color / acabado</div>
-        <div class="colorgrid" id="variantGrid">
-          <button data-variant="1" class="active" style="background: #1a1a1a;" aria-label="Negro"></button>
-          <button data-variant="2" style="background: #f4ecdc;" aria-label="Bone"></button>
-          <button data-variant="3" style="background: #FF5A1F;" aria-label="DTF Orange"></button>
-          <button data-variant="4" style="background: #C9F25C;" aria-label="Lime"></button>
-        </div>
-      </div>
-
-      <div class="tryon-step">
-        <div class="step-lbl">Paso 03 · Logo</div>
-        <div class="step-title">Sube tu logo</div>
-        <div class="upload-zone">
-          <label for="logoInput" class="upload-btn">Elegir archivo</label>
-          <input type="file" id="logoInput" accept="image/*" style="display:none"/>
-          <span class="upload-label" id="logoLabel">PNG transparente · idealmente fondo invisible</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="tryon-preview">
-      <img id="previewImg" class="tryon-preview-img" src="assets/merch/tshirt-1.jpg" alt="Producto preview"/>
-      <img id="previewLogo" class="tryon-preview-logo" alt=""/>
-      <div class="tryon-preview-meta">
-        <span class="live">Preview live</span>
-        <span id="previewMeta">tshirt · variante 01</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESO -->
-<section class="section" id="proceso">
-  <div class="section-head reveal-up">
-    <span class="section-eyebrow">Proceso · 4 pasos rápidos</span>
-    <h2>De tu logo a la <span class="italic">caja en bodega</span> en 7 días.</h2>
-    <p>Sin esperas absurdas. Coordinación directa con el evento. Logística incluida hasta tu sede de operación.</p>
-  </div>
-  <div class="process-grid">
-    <div class="process-step reveal-up">
-      <div class="num">01</div>
-      <h4>Brief + cotización</h4>
-      <p>Nos cuentas el evento, el volumen y la fecha. Cotización con costo + tiempo en menos de 24 hrs.</p>
-    </div>
-    <div class="process-step reveal-up">
-      <div class="num">02</div>
-      <h4>Diseño + muestra</h4>
-      <p>Tu logo aplicado al producto. Mockup digital + muestra física antes de producir el lote completo.</p>
-    </div>
-    <div class="process-step reveal-up">
-      <div class="num">03</div>
-      <h4>Producción</h4>
-      <p>Estampado DTF / serigrafía / bordado según producto. Control de calidad pieza por pieza.</p>
-    </div>
-    <div class="process-step reveal-up">
-      <div class="num">04</div>
-      <h4>Entrega coordinada</h4>
-      <p>Logística hasta tu sede de operación del evento. 5-7 días antes de la fecha — sin sorpresas.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section" id="cta">
-  <div class="cta-card">
-    <h2>Hablemos del <span class="italic">próximo evento</span>.</h2>
-    <p>Cuéntanos qué necesitas: tipo de evento, fecha tentativa y volumen aproximado. <strong>En menos de 24 hrs</strong> tendrás cotización con costo + timeline.</p>
-    <div class="cta-row">
-      <a href="https://wa.me/56992528233?text=Hola%2C%20me%20interesa%20cotizar%20merch%20para%20mi%20evento" target="_blank" rel="noopener" class="btn-primary">Cotizar por WhatsApp →</a>
-      <a href="mailto:contacto@laestampatextil.cl" class="btn-ghost">Enviar mail</a>
-    </div>
-  </div>
-</section>
-
-<div class="brand-bar"><span></span><span></span><span></span><span></span><span></span></div>
-
-<footer class="foot">
-  <span>© 2026 La Estampa Textil · Merch para Eventos</span>
-  <span>Producción · Estampado DTF + complementos</span>
-  <a href="https://laestampatextil.digitalsagencia.cl" style="color: var(--orange);">↗ Web madre</a>
-</footer>
 
 <script>
 window.addEventListener('DOMContentLoaded', () => {
 
-  /* === Custom cursor === */
-  if (matchMedia('(hover: hover)').matches) {
-    const cursor = document.getElementById('cursor');
-    const trail = document.getElementById('cursorTrail');
-    let mx = 0, my = 0, tx = 0, ty = 0;
-    document.addEventListener('mousemove', (e) => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-    });
-    function tick(){
-      tx += (mx - tx) * 0.18;
-      ty += (my - ty) * 0.18;
-      trail.style.left = tx + 'px';
-      trail.style.top = ty + 'px';
-      requestAnimationFrame(tick);
-    }
-    tick();
-    document.querySelectorAll('a, button, .audience-card, .gallery-card, .product-tab').forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-  }
-
-  /* === Audience cards · cursor-following glow === */
-  document.querySelectorAll('.audience-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      const x = ((e.clientX - r.left) / r.width) * 100;
-      const y = ((e.clientY - r.top) / r.height) * 100;
-      card.style.setProperty('--mx', x + '%');
-      card.style.setProperty('--my', y + '%');
-    });
-  });
-
-  /* === Reveal animations (GSAP ScrollTrigger if available, fallback IO) === */
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-    document.querySelectorAll('.reveal-up').forEach((el, i) => {
-      gsap.to(el, {
-        opacity: 1, y: 0, duration: 0.85, ease: 'power3.out', delay: (i % 4) * 0.04,
-        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
-      });
-    });
-  } else if ('IntersectionObserver' in window) {
+  /* Reveal animations */
+  if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
-          e.target.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1)';
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
+          setTimeout(() => e.target.classList.add('in'), (i % 4) * 70);
           io.unobserve(e.target);
         }
       });
     }, { threshold: 0.15 });
-    document.querySelectorAll('.reveal-up').forEach(el => io.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   } else {
-    document.querySelectorAll('.reveal-up').forEach(el => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
   }
 
-  /* === Lenis smooth scroll === */
-  if (window.Lenis) {
-    const lenis = new Lenis({ duration: 1.15, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-    function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    if (window.ScrollTrigger) lenis.on('scroll', ScrollTrigger.update);
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href');
-        if (id.length > 1) {
-          const el = document.querySelector(id);
-          if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -60 }); }
-        }
-      });
+  /* Audience cards cursor glow */
+  document.querySelectorAll('.dc-aud-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
+      card.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
     });
-  }
+  });
 
-  /* === Try-On widget === */
+  /* Try-On Widget */
   const productTabs = document.querySelectorAll('.product-tab');
   const variantGrid = document.getElementById('variantGrid');
   const previewImg = document.getElementById('previewImg');
@@ -587,13 +662,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const logoLabel = document.getElementById('logoLabel');
   let currentProduct = 'tshirt';
   let currentVariant = 1;
-
   function updatePreview() {
-    const src = `assets/merch/${currentProduct}-${currentVariant}.jpg`;
-    previewImg.src = src;
+    previewImg.src = `assets/merch/${currentProduct}-${currentVariant}.jpg`;
     previewMeta.textContent = `${currentProduct} · variante 0${currentVariant}`;
   }
-
   productTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       productTabs.forEach(t => t.classList.remove('active'));
@@ -602,7 +674,6 @@ window.addEventListener('DOMContentLoaded', () => {
       updatePreview();
     });
   });
-
   variantGrid.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', () => {
       variantGrid.querySelectorAll('button').forEach(b => b.classList.remove('active'));
@@ -611,7 +682,6 @@ window.addEventListener('DOMContentLoaded', () => {
       updatePreview();
     });
   });
-
   logoInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (!file) return;

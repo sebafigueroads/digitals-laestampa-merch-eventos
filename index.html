@@ -63,7 +63,8 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 
 .dc-nav { position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between; padding: 22px clamp(20px, 5vw, 60px); max-width: 1600px; margin: 0 auto; width: 100%; }
 .dc-nav-brand { display: flex; align-items: center; gap: 14px; }
-.dc-nav-brand img { height: 52px; width: auto; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.94); padding: 5px; }
+.dc-nav-brand img { height: 56px; width: auto; object-fit: contain; padding: 4px 0; background: transparent; filter: brightness(0) invert(1); transition: filter 0.3s ease; }
+.dc-nav-brand img:hover { filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,90,31,0.5)); }
 .dc-nav-brand .meta { font-family: var(--f-ui); font-size: 11px; letter-spacing: 0.14em; color: var(--gold); font-weight: 700; text-transform: uppercase; }
 .dc-menu { display: flex; align-items: center; gap: 26px; font-family: var(--f-ui); font-size: 13px; letter-spacing: 0.04em; color: rgba(244,236,220,0.86); font-weight: 600; }
 .dc-menu span { transition: color 0.3s; cursor: pointer; }
@@ -252,7 +253,7 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 .dc-foot-cols { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 26px; margin-bottom: 32px; position: relative; z-index: 2; }
 @media (max-width: 980px) { .dc-foot-cols { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .dc-foot-cols { grid-template-columns: 1fr; } }
-.dc-foot-cols .brand img { height: 56px; width: auto; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.95); padding: 6px; margin-bottom: 14px; }
+.dc-foot-cols .brand img { height: 56px; width: auto; object-fit: contain; background: transparent; filter: brightness(0) invert(1); margin-bottom: 14px; }
 .dc-foot-cols .brand p { font-size: 0.82rem; color: rgba(244,236,220,0.62); line-height: 1.6; margin-bottom: 14px; }
 .dc-foot-cols .brand b { color: var(--orange); font-weight: 700; }
 .dc-foot-cols .brand .socials { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -303,11 +304,11 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
         <span>SERVICIOS</span>
         <span>CASOS</span>
         <span>WIDGET</span>
-        <a class="pill" href="#cta">COTIZAR ★</a>
+        <a class="pill" href="#cta">COTIZAR</a>
       </div>
     </div>
     <div class="dc-content">
-      <span class="dc-badge"><span class="star">★</span> Campaña Merch · Eventos · Activaciones · Corridas</span>
+      <span class="dc-badge">Campaña Merch · Eventos · Activaciones · Corridas</span>
       <h1>Merch ultra-rápido · <em>tinta firme</em> para tu evento o activación.</h1>
       <p class="dc-sub"><strong>4 años de oficio en estampado textil DTF</strong>. Poleras, gorras, mochilas, totes para corridas, activaciones BTL, lanzamientos y eventos corporativos. <strong>Complementamos</strong> con tazas, lápices y accesorios para entregar el kit completo del evento — sin saltar entre 3 proveedores.</p>
       <div class="dc-cta-row">
@@ -436,9 +437,8 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
       </div>
       <div class="dc-caso" style="background-image: url('assets/rrss/tinydesk-31min.png');">
         <div class="caso-meta">
-          <span class="caso-tag">★ TINY DESK · 31 MINUTOS</span>
-          <h4>Vestuario producción audiovisual · 31 min set Tiny Desk.</h4>
-          <p class="caso-excerpt">Producción musical en formato editorial. Estampado custom para sesión, vestuario coordinado, entrega ajustada al día de grabación.</p>
+          <span class="caso-tag">TINY DESK · 31 MINUTOS</span>
+          <h4>Vestuario · sesión audiovisual 31 min.</h4>
           <a class="caso-link">VER CASO →</a>
         </div>
       </div>

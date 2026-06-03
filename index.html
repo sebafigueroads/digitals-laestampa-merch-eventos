@@ -9,7 +9,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -34,10 +34,11 @@
   --lime:         #C9F25C;     /* eco accent */
   --red-dot:      #FF5A3C;
 
-  --f-display:    'Bricolage Grotesque', sans-serif;
-  --f-body:       'Geist', sans-serif;
+  --f-display:    'Bricolage Grotesque', 'Inter Tight', sans-serif;
+  --f-body:       'Inter Tight', sans-serif;
   --f-serif:      'Instrument Serif', Georgia, serif;
-  --f-mono:       'Geist Mono', ui-monospace, monospace;
+  --f-mono:       'JetBrains Mono', ui-monospace, monospace;
+  --f-ui:         'Inter Tight', sans-serif;
 
   --ease:         cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -62,11 +63,11 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 .dc-nav { position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between; padding: 22px clamp(20px, 5vw, 60px); max-width: 1600px; margin: 0 auto; width: 100%; }
 .dc-nav-brand { display: flex; align-items: center; gap: 14px; }
 .dc-nav-brand img { height: 52px; width: auto; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.94); padding: 5px; }
-.dc-nav-brand .meta { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--gold); font-weight: 600; }
-.dc-menu { display: flex; align-items: center; gap: 22px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(244,236,220,0.85); font-weight: 600; }
+.dc-nav-brand .meta { font-family: var(--f-ui); font-size: 11px; letter-spacing: 0.14em; color: var(--gold); font-weight: 700; text-transform: uppercase; }
+.dc-menu { display: flex; align-items: center; gap: 26px; font-family: var(--f-ui); font-size: 13px; letter-spacing: 0.04em; color: rgba(244,236,220,0.86); font-weight: 600; }
 .dc-menu span { transition: color 0.3s; cursor: pointer; }
 .dc-menu span:hover { color: var(--orange); }
-.dc-menu .pill { padding: 8px 14px; background: var(--orange); color: var(--bg); border-radius: 100px; font-weight: 800; letter-spacing: 0.18em; }
+.dc-menu .pill { padding: 9px 16px; background: var(--orange); color: var(--bg); border-radius: 100px; font-weight: 800; letter-spacing: 0.04em; font-size: 12.5px; }
 .dc-menu .pill:hover { color: var(--bg); background: var(--gold); }
 @media (max-width: 880px) { .dc-menu span:not(.pill) { display: none; } }
 
@@ -98,12 +99,21 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 .bg-dark .dc-section h2 em { color: var(--gold); }
 .bg-dark .dc-section .dc-sub { color: rgba(244,236,220,0.75); }
 
-/* Stats === */
+/* Stats con count-up + accent stripes === */
+.stats-band { position: relative; }
+.stats-band::before, .stats-band::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,90,31,0.32), transparent); }
+.stats-band::before { top: 0; }
+.stats-band::after { bottom: 0; }
 .dc-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding: 14px 0; }
 @media (max-width: 760px) { .dc-stats-row { grid-template-columns: repeat(2, 1fr); } }
+.dc-stat { position: relative; padding: 14px 4px; transition: transform 0.4s var(--ease); }
+.dc-stat::after { content: ''; position: absolute; left: 0; top: 50%; width: 1px; height: 60%; background: var(--line); transform: translateY(-50%); opacity: 0.7; }
+.dc-stat:first-child::after { display: none; }
+.dc-stat:hover { transform: translateY(-2px); }
 .dc-stat .v { font-family: var(--f-display); font-weight: 800; font-size: clamp(2.4rem, 4vw, 3.4rem); line-height: 1; letter-spacing: -0.02em; color: var(--ink); padding-block: 0.04em; }
-.dc-stat .v em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--orange); }
-.dc-stat .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; margin-top: 8px; display: block; }
+.dc-stat .v em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--orange); font-size: 0.5em; vertical-align: middle; margin-left: 0.18em; }
+.dc-stat .v .count { display: inline-block; font-variant-numeric: tabular-nums; }
+.dc-stat .k { font-family: var(--f-ui); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-soft); font-weight: 600; margin-top: 10px; display: block; }
 
 /* === Manifiesto · split editorial === */
 .dc-manifest { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(28px, 4vw, 60px); align-items: center; margin-top: 32px; }
@@ -119,15 +129,16 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 .dc-audience { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
 @media (max-width: 980px) { .dc-audience { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 540px) { .dc-audience { grid-template-columns: 1fr; } }
-.dc-aud-card { --mx: 50%; --my: 50%; position: relative; padding: 26px 22px 22px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: all 0.45s var(--ease); cursor: default; }
-.dc-aud-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(360px circle at var(--mx) var(--my), rgba(255,90,31,0.10), transparent 55%); opacity: 0; transition: opacity 0.5s; }
-.dc-aud-card:hover { border-color: rgba(255,90,31,0.45); transform: translateY(-4px); box-shadow: 0 22px 44px -12px rgba(0,0,0,0.15); }
+.dc-aud-card { --mx: 50%; --my: 50%; position: relative; min-height: 360px; padding: 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: all 0.5s var(--ease); cursor: default; background-size: cover; background-position: center; background-color: var(--bg-2); }
+.dc-aud-overlay { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(11,10,8,0.20) 0%, rgba(11,10,8,0.55) 45%, rgba(11,10,8,0.92) 100%); transition: opacity 0.5s; z-index: 1; }
+.dc-aud-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(400px circle at var(--mx) var(--my), rgba(255,90,31,0.30), transparent 55%); opacity: 0; transition: opacity 0.5s; z-index: 2; mix-blend-mode: screen; }
+.dc-aud-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,90,31,0.4); }
 .dc-aud-card:hover::after { opacity: 1; }
-.dc-aud-card > * { position: relative; z-index: 2; }
-.dc-aud-num { font-family: var(--f-display); font-weight: 800; font-size: 2.4rem; line-height: 1; color: rgba(255,90,31,0.22); letter-spacing: -0.03em; }
-.dc-aud-card:hover .dc-aud-num { color: var(--orange); }
-.dc-aud-card h4 { font-family: var(--f-display); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.012em; margin: 12px 0 8px; color: var(--ink); }
-.dc-aud-card p { font-size: 0.86rem; line-height: 1.55; color: var(--ink-soft); }
+.dc-aud-card:hover .dc-aud-overlay { background: linear-gradient(180deg, rgba(11,10,8,0.05) 0%, rgba(11,10,8,0.40) 40%, rgba(11,10,8,0.95) 100%); }
+.dc-aud-inner { position: relative; z-index: 3; padding: 26px 22px 24px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; min-height: 360px; color: var(--bone); }
+.dc-aud-num { font-family: var(--f-display); font-weight: 800; font-size: 2.6rem; line-height: 1; color: var(--orange); letter-spacing: -0.03em; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
+.dc-aud-card h4 { font-family: var(--f-display); font-weight: 800; font-size: 1.35rem; letter-spacing: -0.012em; margin: 14px 0 8px; color: var(--bone); text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.dc-aud-card p { font-size: 0.88rem; line-height: 1.55; color: rgba(244,236,220,0.85); text-shadow: 0 1px 6px rgba(0,0,0,0.45); }
 
 /* === Capacidades 4 cards === */
 .dc-caps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 32px; }
@@ -291,7 +302,7 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
     <div class="dc-content">
       <span class="dc-badge"><span class="star">★</span> Campaña Merch · Eventos · Activaciones · Corridas</span>
       <h1>Merch ultra-rápido · <em>tinta firme</em> para tu evento o activación.</h1>
-      <p class="dc-sub"><strong>4 años de oficio en estampado textil DTF</strong>. Polos, gorras, mochilas, totes para corridas, activaciones BTL, lanzamientos y eventos corporativos. <strong>Complementamos</strong> con tazas, lápices y accesorios para entregar el kit completo del evento — sin saltar entre 3 proveedores.</p>
+      <p class="dc-sub"><strong>4 años de oficio en estampado textil DTF</strong>. Poleras, gorras, mochilas, totes para corridas, activaciones BTL, lanzamientos y eventos corporativos. <strong>Complementamos</strong> con tazas, lápices y accesorios para entregar el kit completo del evento — sin saltar entre 3 proveedores.</p>
       <div class="dc-cta-row">
         <a class="dc-cta-primary" href="#widget">Probar widget en vivo →</a>
         <a class="dc-cta-secondary" href="#cta">Cotizar directamente</a>
@@ -299,13 +310,13 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
     </div>
   </section>
 
-  <!-- STATS · cream -->
-  <div class="dc-section bg-cream" style="padding-top: 2.2rem; padding-bottom: 2.2rem;">
+  <!-- STATS · cream con counter animado === -->
+  <div class="dc-section bg-cream stats-band" style="padding-top: 3rem; padding-bottom: 3rem;">
     <div class="dc-stats-row">
-      <div class="dc-stat"><div class="v">4 <em>años</em></div><span class="k">de oficio textil</span></div>
-      <div class="dc-stat"><div class="v">5-7d</div><span class="k">producción promedio</span></div>
-      <div class="dc-stat"><div class="v">DTF</div><span class="k">estampado premium</span></div>
-      <div class="dc-stat"><div class="v">CL</div><span class="k">cobertura nacional</span></div>
+      <div class="dc-stat reveal"><div class="v"><span class="count" data-count="4">0</span> <em>años</em></div><span class="k">de oficio textil</span></div>
+      <div class="dc-stat reveal"><div class="v"><span class="count" data-count="500">0</span>+ <em>uds</em></div><span class="k">producción mín. evento</span></div>
+      <div class="dc-stat reveal"><div class="v"><span class="count" data-count="7">0</span>d</div><span class="k">producción promedio</span></div>
+      <div class="dc-stat reveal"><div class="v"><span class="count" data-count="60">0</span>+ <em>lavados</em></div><span class="k">durabilidad DTF</span></div>
     </div>
   </div>
 
@@ -327,28 +338,40 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
   <!-- AUDIENCE · Eventos / Activaciones / Corridas -->
   <div class="dc-section bg-cream" id="eventos">
     <span class="dc-kicker">— PARA QUIÉN ES</span>
-    <h2>Diseñado para <em>eventos en movimiento</em>.</h2>
-    <p class="dc-sub" style="max-width: 64ch;">Si organizas activaciones con identidad de marca y necesitas merch de calidad en plazos cortos — sin pedidos mínimos absurdos ni espera de 30 días — esta es tu fábrica.</p>
+    <h2>Diseñado para <em>corridas, running y eventos deportivos</em>.</h2>
+    <p class="dc-sub" style="max-width: 64ch;">Si organizas corridas, activaciones BTL, lanzamientos o eventos corporativos con identidad de marca — y necesitas merch de calidad en plazos cortos sin pedidos mínimos absurdos ni espera de 30 días — esta es tu fábrica.</p>
     <div class="dc-audience">
-      <article class="dc-aud-card reveal">
-        <div class="dc-aud-num">01</div>
-        <h4>Corridas &amp; running</h4>
-        <p>Poleras técnicas + dorsales personalizados + kits de bienvenida. Producción coordinada con tu fecha — entregamos 5-7 días antes.</p>
+      <article class="dc-aud-card reveal" style="background-image: url('assets/hf/aud-corridas.jpg');">
+        <div class="dc-aud-overlay"></div>
+        <div class="dc-aud-inner">
+          <div class="dc-aud-num">01</div>
+          <h4>Corridas &amp; running</h4>
+          <p>Poleras técnicas + dorsales personalizados + kits de bienvenida. Producción coordinada con tu fecha — entregamos 5-7 días antes.</p>
+        </div>
       </article>
-      <article class="dc-aud-card reveal">
-        <div class="dc-aud-num">02</div>
-        <h4>Activaciones de marca</h4>
-        <p>BTL en mall, vía pública, festivales. Kit completo: polo staff + caps + mochilas + accesorios para sampling.</p>
+      <article class="dc-aud-card reveal" style="background-image: url('assets/hf/aud-btl.jpg');">
+        <div class="dc-aud-overlay"></div>
+        <div class="dc-aud-inner">
+          <div class="dc-aud-num">02</div>
+          <h4>Activaciones de marca</h4>
+          <p>BTL en mall, vía pública, festivales. Kit completo: polera staff + caps + mochilas + accesorios para sampling.</p>
+        </div>
       </article>
-      <article class="dc-aud-card reveal">
-        <div class="dc-aud-num">03</div>
-        <h4>Eventos corporativos</h4>
-        <p>Convenciones, off-sites, premios. Merch elegante para asistentes + uniformes para organizadores. Desde 50 unidades.</p>
+      <article class="dc-aud-card reveal" style="background-image: url('assets/hf/aud-corporate.jpg');">
+        <div class="dc-aud-overlay"></div>
+        <div class="dc-aud-inner">
+          <div class="dc-aud-num">03</div>
+          <h4>Eventos corporativos</h4>
+          <p>Convenciones, off-sites, premios. Merch elegante para asistentes + uniformes para organizadores. Desde 50 unidades.</p>
+        </div>
       </article>
-      <article class="dc-aud-card reveal">
-        <div class="dc-aud-num">04</div>
-        <h4>Lanzamientos &amp; festivales</h4>
-        <p>Limited edition merch para lanzamiento de producto, festivales musicales, eventos deportivos. Series cortas con valor coleccionable.</p>
+      <article class="dc-aud-card reveal" style="background-image: url('assets/hf/aud-festival.jpg');">
+        <div class="dc-aud-overlay"></div>
+        <div class="dc-aud-inner">
+          <div class="dc-aud-num">04</div>
+          <h4>Lanzamientos &amp; festivales</h4>
+          <p>Limited edition merch para lanzamiento de producto, festivales musicales, eventos deportivos. Series cortas con valor coleccionable.</p>
+        </div>
       </article>
     </div>
   </div>
@@ -405,7 +428,7 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
       <div class="dc-caso" style="background-image: url('assets/img/taller-polera.png');">
         <div class="caso-meta">
           <span class="caso-tag">CORRIDA · RUNNING</span>
-          <h4>Polos técnicos + dorsales 5K corporate.</h4>
+          <h4>Poleras técnicas + dorsales 5K corporate.</h4>
           <a class="caso-link">VER CASO →</a>
         </div>
       </div>
@@ -632,6 +655,58 @@ window.addEventListener('DOMContentLoaded', () => {
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
   }
+
+  /* === Count-up animation para stats === */
+  const counters = document.querySelectorAll('.count');
+  if ('IntersectionObserver' in window && counters.length) {
+    const countIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting || e.target.dataset.done) return;
+        e.target.dataset.done = '1';
+        const target = Number(e.target.dataset.count);
+        const dur = 1800;
+        const start = performance.now();
+        const step = (t) => {
+          const p = Math.min(1, (t - start) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const val = Math.round(target * eased);
+          e.target.textContent = val.toLocaleString('es-CL');
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(c => countIO.observe(c));
+  }
+
+  /* === Parallax suave del hero video al scroll === */
+  const heroVideo = document.querySelector('.dc-video');
+  if (heroVideo) {
+    let raf = null;
+    window.addEventListener('scroll', () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y < window.innerHeight) {
+          heroVideo.style.transform = `translateY(${y * 0.32}px) scale(${1 + y * 0.0003})`;
+        }
+        raf = null;
+      });
+    }, { passive: true });
+  }
+
+  /* === Magnetic hover para CTAs primary === */
+  document.querySelectorAll('.dc-cta-primary').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      btn.style.transform = `translate(${x * 0.18}px, ${y * 0.22 - 3}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
 
   /* Audience cards cursor glow */
   document.querySelectorAll('.dc-aud-card').forEach(card => {

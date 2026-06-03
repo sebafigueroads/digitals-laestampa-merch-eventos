@@ -37,8 +37,9 @@
   --f-display:    'Bricolage Grotesque', 'Inter Tight', sans-serif;
   --f-body:       'Inter Tight', sans-serif;
   --f-serif:      'Instrument Serif', Georgia, serif;
-  --f-mono:       'JetBrains Mono', ui-monospace, monospace;
+  --f-mono:       'Inter Tight', sans-serif;  /* sans moderno · ex-Geist Mono se veia maquina escribir */
   --f-ui:         'Inter Tight', sans-serif;
+  --f-data:       'JetBrains Mono', ui-monospace, monospace; /* solo para data tabular real */
 
   --ease:         cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -274,6 +275,12 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
+/* WhatsApp floating widget */
+.wa-widget { position: fixed; bottom: 24px; right: 24px; z-index: 90; width: 60px; height: 60px; background: #25D366; display: flex; align-items: center; justify-content: center; border-radius: 50%; box-shadow: 0 12px 32px rgba(37,211,102,.45), 0 0 0 0 rgba(37,211,102,.5); transition: transform .25s ease, box-shadow .3s; text-decoration: none; animation: waPulse 2.4s infinite; }
+.wa-widget:hover { transform: scale(1.08); box-shadow: 0 14px 38px rgba(37,211,102,.6), 0 0 0 8px rgba(37,211,102,.15); }
+.wa-widget svg { width: 32px; height: 32px; fill: #fff; }
+@keyframes waPulse { 0%, 100% { box-shadow: 0 12px 32px rgba(37,211,102,.45), 0 0 0 0 rgba(37,211,102,.5); } 50% { box-shadow: 0 12px 32px rgba(37,211,102,.45), 0 0 0 18px rgba(37,211,102,0); } }
+
 </style>
 </head>
 <body>
@@ -411,11 +418,6 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
     <h2>Lo que entregamos cuando <em>el deadline aprieta</em>.</h2>
     <p class="dc-sub" style="max-width: 64ch;">Activaciones reales producidas las últimas semanas. Cada caso con timing real, cantidad real y técnica usada — sin maquillaje.</p>
 
-    <div class="dc-seo-ribbon">
-      <span class="seo-badge">★ SEO + AEO + GEO</span>
-      <p>Cada caso indexado para que cuando un brand manager pregunte a ChatGPT por proveedores de merch para activaciones en Chile, <b>La Estampa aparezca con casos y métricas verificables</b>.</p>
-    </div>
-
     <div class="dc-casos-grid">
       <div class="dc-caso big" style="background-image: url('assets/img/pop-hero.png');">
         <div class="caso-meta">
@@ -425,10 +427,18 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
           <a class="caso-link">LEER CASO COMPLETO →</a>
         </div>
       </div>
-      <div class="dc-caso" style="background-image: url('assets/img/taller-polera.png');">
+      <div class="dc-caso" style="background-image: url('assets/hf/caso-corrida.jpg');">
         <div class="caso-meta">
           <span class="caso-tag">CORRIDA · RUNNING</span>
           <h4>Poleras técnicas + dorsales 5K corporate.</h4>
+          <a class="caso-link">VER CASO →</a>
+        </div>
+      </div>
+      <div class="dc-caso" style="background-image: url('assets/rrss/tinydesk-31min.png');">
+        <div class="caso-meta">
+          <span class="caso-tag">★ TINY DESK · 31 MINUTOS</span>
+          <h4>Vestuario producción audiovisual · 31 min set Tiny Desk.</h4>
+          <p class="caso-excerpt">Producción musical en formato editorial. Estampado custom para sesión, vestuario coordinado, entrega ajustada al día de grabación.</p>
           <a class="caso-link">VER CASO →</a>
         </div>
       </div>
@@ -436,13 +446,6 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
         <div class="caso-meta">
           <span class="caso-tag">B2B · ONBOARDING</span>
           <h4>Kit nuevo empleado · 200 ingresos/mes retail.</h4>
-          <a class="caso-link">VER CASO →</a>
-        </div>
-      </div>
-      <div class="dc-caso" style="background-image: url('assets/rrss/tinydesk-31min.png');">
-        <div class="caso-meta">
-          <span class="caso-tag">FESTIVAL · LIMITED</span>
-          <h4>Vestuario producción festival musical.</h4>
           <a class="caso-link">VER CASO →</a>
         </div>
       </div>
@@ -761,6 +764,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 });
 </script>
+
+<a href="https://wa.me/56992528233?text=Hola%2C%20necesito%20cotizar%20merch%20para%20mi%20evento" target="_blank" rel="noopener" class="wa-widget" aria-label="WhatsApp La Estampa Textil">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C9.8 8.7 9.2 7.2 9 6.6c-.2-.6-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4S8 11.7 8.2 12c.2.3 2 3.1 5 4.2.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3M12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+</a>
 
 </body>
 </html>
